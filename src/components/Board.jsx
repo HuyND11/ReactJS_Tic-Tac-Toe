@@ -1,21 +1,18 @@
-import Squares from "./Squares";
+import Square from "./Square";
 
 const Board = ({ squares, onClick }) => {
-  // const rows = [];
-  // for (let index = 0; index <= 9; index++) {
-  //   <Squares value={squares[index]} onClick={(index) => onClick(index)} />;
-  // }
+  const list = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  // Using map to render Item
+  // Không dùng arowrr function
   return (
     <div className="board">
-      <div>{<Squares value={squares[0]} onClick={() => onClick(0)} />}</div>
-      <div>{<Squares value={squares[1]} onClick={() => onClick(1)} />}</div>
-      <div>{<Squares value={squares[2]} onClick={() => onClick(2)} />}</div>
-      <div>{<Squares value={squares[3]} onClick={() => onClick(3)} />}</div>
-      <div>{<Squares value={squares[4]} onClick={() => onClick(4)} />}</div>
-      <div>{<Squares value={squares[5]} onClick={() => onClick(5)} />}</div>
-      <div>{<Squares value={squares[6]} onClick={() => onClick(6)} />}</div>
-      <div>{<Squares value={squares[7]} onClick={() => onClick(7)} />}</div>
-      <div>{<Squares value={squares[8]} onClick={() => onClick(8)} />}</div>
+      {
+        list.map((value, index) =>
+          <div key={index}>
+            {<Square value={squares[value]} onClick={() => onClick(value)} />}
+          </div>
+        )
+      }
     </div>
   );
 };
